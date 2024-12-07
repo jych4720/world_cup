@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Search Results</title>
+
+</head>
+<body>
+    <h1>Player Search Results</h1>
+    {% if player_info %}
+        <table>
+            <thead>
+              <tr>
+		    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Goals scored</th>
+                    <th>Matches played</th>
+                    <th>Goals per match</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in player_info %}
+                <tr>
+		        <td>{{ player['Rank']}} </td>
+                        <td>{{ player.Player }}</td>
+                        <td>{{ player['Goals scored'] }}</td>
+                        <td>{{ player['Matches played'] }}</td>
+                        <td>{{ player['Goals per match'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ player_info }}</p>
+	{% endif %}
+	<a href="/" class="back-button">Back to Home</a>
+</body>
+</html>
